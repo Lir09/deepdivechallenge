@@ -1,0 +1,7 @@
+{
+  "default":   { "distance": 0.01, "slope": 3.0, "stairs": 200.0, "sidewalk": 1.5 },
+  "wheelchair":{ "distance": 0.01, "slope": 6.0, "stairs": 10000.0, "sidewalk": 2.0 },
+  "crutch":    { "distance": 0.01, "slope": 5.0, "stairs": 500.0, "sidewalk": 2.0 },
+  "stroller":  { "distance": 0.01, "slope": 3.5, "stairs": 8000.0, "sidewalk": 1.8 },
+  "senior":    { "distance": 0.01, "slope": 4.5, "stairs": 800.0, "sidewalk": 2.2 }
+}
