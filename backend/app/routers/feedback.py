@@ -1,13 +1,10 @@
-from pydantic import BaseModel, Field
-from typing import List, Literal
+from fastapi import APIRouter
+from app.schemas.feedback import FeedbackRequest, FeedbackResponse
+from app.services.model import save_feedback_row
 
-Profile = Literal["wheelchair", "crutch", "stroller", "senior", "default"]
+router = APIRouter()
 
-class FeedbackRequest(BaseModel):
-    route_id: str
-    profile: Profile = "default"
-    rating: int = Field(ge=1, le=5)  # 1~5
-    tags: List[str] = Field(default_factory=list)  # ["slope", "stairs", "unsafe", ...]
-
-class FeedbackResponse(BaseModel):
-    saved: bool
+@router.post("", response_model=FeedbackResponse)
+def feedback(req: FeedbackRequest):
+    save_feedback_row(req)
+    return {"saved": True}
