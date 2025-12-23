@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #f7f3ea;
+  --ink: #1b1b1b;
+  --ink-muted: #4f4b45;
+  --clay: #d8c5aa;
+  --terra: #e26a2c;
+  --olive: #2f5e4e;
+  --sun: #f7b74a;
+  --mist: rgba(255, 255, 255, 0.65);
+}
+
+@theme inline {
+  --color-background: var(--paper);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(
+      circle at 15% 20%,
+      rgba(247, 183, 74, 0.25),
+      transparent 48%
+    ),
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(226, 106, 44, 0.18),
+      transparent 40%
+    ),
+    linear-gradient(140deg, #f8f4ee 0%, #f3ece0 45%, #f7f3ea 100%);
+  color: var(--ink);
+  font-family: var(--font-body), "Work Sans", sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), "Fraunces", serif;
+}
+
+.glass {
+  background: var(--mist);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(27, 27, 27, 0.08);
+}
+
+.hero-grid {
+  background-image: linear-gradient(
+      rgba(27, 27, 27, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(90deg, rgba(27, 27, 27, 0.06) 1px, transparent 1px);
+  background-size: 32px 32px;
+  mask-image: radial-gradient(circle at top, black 45%, transparent 75%);
+}
+
+.floating {
+  animation: float 10s ease-in-out infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: reveal 0.8s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+
+.glow {
+  box-shadow: 0 25px 80px rgba(226, 106, 44, 0.2);
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes reveal {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
